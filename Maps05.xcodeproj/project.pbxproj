@@ -15,7 +15,7 @@
 		5D359D7D18FEE45B00F2B14A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5D359D7B18FEE45B00F2B14A /* InfoPlist.strings */; };
 		5D359D7F18FEE45B00F2B14A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D359D7E18FEE45B00F2B14A /* main.m */; };
 		5D359D8318FEE45B00F2B14A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D359D8218FEE45B00F2B14A /* AppDelegate.m */; };
-		5D359D8618FEE45B00F2B14A /* MapTest01.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5D359D8418FEE45B00F2B14A /* MapTest01.xcdatamodeld */; };
+		5D359D8618FEE45B00F2B14A /* Maps05.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5D359D8418FEE45B00F2B14A /* Maps05.xcdatamodeld */; };
 		5D359D8818FEE45B00F2B14A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D359D8718FEE45B00F2B14A /* Images.xcassets */; };
 		5D359D8F18FEE45B00F2B14A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D359D8E18FEE45B00F2B14A /* XCTest.framework */; };
 		5D359D9018FEE45B00F2B14A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D359D7018FEE45B00F2B14A /* Foundation.framework */; };
@@ -42,7 +42,7 @@
 			containerPortal = 5D359D6518FEE45B00F2B14A /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 5D359D6C18FEE45B00F2B14A;
-			remoteInfo = MapTest01;
+			remoteInfo = Maps05;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -60,11 +60,11 @@
 		5D359D8018FEE45B00F2B14A /* Maps05-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Maps05-Prefix.pch"; sourceTree = "<group>"; };
 		5D359D8118FEE45B00F2B14A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5D359D8218FEE45B00F2B14A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		5D359D8518FEE45B00F2B14A /* MapTest01.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MapTest01.xcdatamodel; sourceTree = "<group>"; };
+		5D359D8518FEE45B00F2B14A /* Maps05.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Maps05.xcdatamodel; sourceTree = "<group>"; };
 		5D359D8718FEE45B00F2B14A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5D359D8D18FEE45B00F2B14A /* Maps05Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Maps05Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D359D8E18FEE45B00F2B14A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		5D359D9718FEE45B00F2B14A /* MapTest04Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "MapTest04Tests-Info.plist"; sourceTree = "<group>"; };
+		5D359D9718FEE45B00F2B14A /* Maps05Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Maps05Tests-Info.plist"; sourceTree = "<group>"; };
 		5D359D9918FEE45B00F2B14A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5D359D9B18FEE45B00F2B14A /* Maps05Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Maps05Tests.m; sourceTree = "<group>"; };
 		5D359DA518FEE62200F2B14A /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
@@ -161,7 +161,7 @@
 				5DA395661903850B009C0B3B /* MBMapPin.h */,
 				5DA395671903850B009C0B3B /* MBMapPin.m */,
 				5D359D8718FEE45B00F2B14A /* Images.xcassets */,
-				5D359D8418FEE45B00F2B14A /* MapTest01.xcdatamodeld */,
+				5D359D8418FEE45B00F2B14A /* Maps05.xcdatamodeld */,
 				5D359DA518FEE62200F2B14A /* Storyboard.storyboard */,
 				5D5D4503190B82F90094B0D5 /* Storyboard_ipad.storyboard */,
 				5DAB0F3B190C6735001C3637 /* LocationViewController.h */,
@@ -202,7 +202,7 @@
 		5D359D9618FEE45B00F2B14A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				5D359D9718FEE45B00F2B14A /* MapTest04Tests-Info.plist */,
+				5D359D9718FEE45B00F2B14A /* Maps05Tests-Info.plist */,
 				5D359D9818FEE45B00F2B14A /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -231,7 +231,7 @@
 			dependencies = (
 			);
 			name = Maps05;
-			productName = MapTest01;
+			productName = Maps05;
 			productReference = 5D359D6D18FEE45B00F2B14A /* Maps05.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -249,7 +249,7 @@
 				5D359D9418FEE45B00F2B14A /* PBXTargetDependency */,
 			);
 			name = Maps05Tests;
-			productName = MapTest01Tests;
+			productName = Maps05Tests;
 			productReference = 5D359D8D18FEE45B00F2B14A /* Maps05Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
@@ -317,7 +317,7 @@
 				5DA395681903850B009C0B3B /* MBMapPin.m in Sources */,
 				5DAB0F3D190C6735001C3637 /* LocationViewController.m in Sources */,
 				5D359DAC18FF158200F2B14A /* Map.m in Sources */,
-				5D359D8618FEE45B00F2B14A /* MapTest01.xcdatamodeld in Sources */,
+				5D359D8618FEE45B00F2B14A /* Maps05.xcdatamodeld in Sources */,
 				5D07063F18FFAF120006D518 /* MapViewController.m in Sources */,
 				5D9E5DBB1900EF0000E5A9EE /* Data.m in Sources */,
 				5D359D7F18FEE45B00F2B14A /* main.m in Sources */,
@@ -537,13 +537,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		5D359D8418FEE45B00F2B14A /* MapTest01.xcdatamodeld */ = {
+		5D359D8418FEE45B00F2B14A /* Maps05.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				5D359D8518FEE45B00F2B14A /* MapTest01.xcdatamodel */,
+				5D359D8518FEE45B00F2B14A /* Maps05.xcdatamodel */,
 			);
-			currentVersion = 5D359D8518FEE45B00F2B14A /* MapTest01.xcdatamodel */;
-			path = MapTest01.xcdatamodeld;
+			currentVersion = 5D359D8518FEE45B00F2B14A /* Maps05.xcdatamodel */;
+			name = Maps05.xcdatamodeld;
+			path = Maps05.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

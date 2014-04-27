@@ -18,5 +18,9 @@
 @synthesize description;
 @synthesize latitude;
 @synthesize longitude;
+@synthesize distance;
+@synthesize direction;
+@synthesize index;
+@synthesize id;
 
 @end

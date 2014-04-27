@@ -15,6 +15,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *mapCaption;
 @property (weak, nonatomic) IBOutlet UIImageView *mapImage;
 @property (weak, nonatomic) IBOutlet UINavigationItem *titleView;
+- (IBAction)bookmarkBeenHere:(id)sender;
+- (IBAction)bookmarkWantToGo:(id)sender;
 
 @end
 

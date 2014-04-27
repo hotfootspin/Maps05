@@ -56,7 +56,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 8; // so far
+    return 11; // so far
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -122,7 +122,23 @@
             
         case 7:
             cell.textLabel.text = @"Map ID";
+            cell.detailTextLabel.text = [[NSNumber numberWithInt:[map id]] stringValue];
+            break;
+            
+        case 8:
+            cell.textLabel.text = @"Been Here";
             cell.detailTextLabel.text = @"";
+            break;
+            
+        case 9:
+            cell.textLabel.text = @"Want to go";
+            cell.detailTextLabel.text = @"";
+            break;
+            
+        case 10:
+            cell.textLabel.text = @"Comments";
+            cell.detailTextLabel.text = @"";
+            cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
             break;
             
         default:

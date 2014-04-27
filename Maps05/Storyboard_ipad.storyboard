@@ -28,14 +28,39 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y6G-lM-2UJ">
+                                <rect key="frame" x="316" y="834" width="140" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="I have been here">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="bookmarkBeenHere:" destination="ck8-Zr-rl5" eventType="touchUpInside" id="b6Q-cE-3B0"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Am-Yi-kfU">
+                                <rect key="frame" x="316" y="885" width="142" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="I want to go here">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="bookmarkWantToGo:" destination="ck8-Zr-rl5" eventType="touchUpInside" id="iyJ-E7-aRV"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.9334511861" green="0.95832313690000004" blue="0.96780907849999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="2Am-Yi-kfU" firstAttribute="width" secondItem="y6G-lM-2UJ" secondAttribute="width" id="0qM-jD-xcP"/>
+                            <constraint firstAttribute="centerX" secondItem="2Am-Yi-kfU" secondAttribute="centerX" constant="-3" id="576-5D-kxD"/>
                             <constraint firstItem="kgy-lN-O8j" firstAttribute="top" secondItem="5iJ-MZ-BLw" secondAttribute="bottom" constant="192" id="6f9-z4-y9P"/>
                             <constraint firstItem="5iJ-MZ-BLw" firstAttribute="top" secondItem="fOZ-qu-zNT" secondAttribute="bottom" constant="20" id="ANq-0z-oGm"/>
+                            <constraint firstAttribute="centerX" secondItem="y6G-lM-2UJ" secondAttribute="centerX" constant="-2" id="D3C-9Q-bNt"/>
                             <constraint firstAttribute="centerX" secondItem="5iJ-MZ-BLw" secondAttribute="centerX" constant="-3.5" id="IVC-ff-c07"/>
-                            <constraint firstItem="kgy-lN-O8j" firstAttribute="top" secondItem="F43-cj-ehV" secondAttribute="bottom" constant="154" id="Owz-xB-gBB"/>
+                            <constraint firstItem="kgy-lN-O8j" firstAttribute="top" secondItem="F43-cj-ehV" secondAttribute="bottom" constant="154" id="UuC-Dd-Sgb"/>
                             <constraint firstAttribute="centerX" secondItem="F43-cj-ehV" secondAttribute="centerX" id="bE4-Jv-4Qa"/>
+                            <constraint firstItem="kgy-lN-O8j" firstAttribute="top" secondItem="2Am-Yi-kfU" secondAttribute="bottom" constant="32" id="dUQ-5B-R6s"/>
+                            <constraint firstItem="kgy-lN-O8j" firstAttribute="top" secondItem="y6G-lM-2UJ" secondAttribute="bottom" constant="83" id="uoR-ah-uxG"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Jacksonville" id="HXI-dD-sjz">
@@ -97,6 +122,14 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="More Information" id="sRA-7Q-pYZ"/>
                 </tableViewController>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" id="FpR-Oa-o2T">
+                    <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GOh-7w-Yy1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3431" y="-28"/>
@@ -149,6 +182,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="List of Maps" id="IvS-gI-Yu3"/>
+                    <connections>
+                        <outlet property="navBar" destination="IvS-gI-Yu3" id="nLi-Xz-bsg"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hYl-e9-4mY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -181,11 +217,7 @@
                                 <rect key="frame" x="423" y="121" width="321" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
-                                <size key="titleShadowOffset" width="3" height="3"/>
                                 <state key="normal" title="View a list of maps">
-                                    <color key="titleColor" red="0.65238360969999998" green="0.32196932989999999" blue="0.1333891515" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <state key="highlighted">
                                     <color key="titleColor" red="0.65238360969999998" green="0.32196932989999999" blue="0.1333891515" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" cocoaTouchSystemColor="lightTextColor"/>
                                 </state>
@@ -197,7 +229,6 @@
                                 <rect key="frame" x="423" y="181" width="321" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
-                                <size key="titleShadowOffset" width="3" height="3"/>
                                 <state key="normal" title="View a map of locations">
                                     <color key="titleColor" red="0.65238360969999998" green="0.32196932989999999" blue="0.1333891515" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" cocoaTouchSystemColor="lightTextColor"/>
@@ -207,10 +238,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CxK-of-2wv">
-                                <rect key="frame" x="423" y="243" width="321" height="48"/>
+                                <rect key="frame" x="423" y="241" width="321" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
-                                <size key="titleShadowOffset" width="3" height="3"/>
                                 <state key="normal" title="Find locations near me">
                                     <color key="titleColor" red="0.65238360969999998" green="0.32196932989999999" blue="0.1333891515" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" cocoaTouchSystemColor="lightTextColor"/>
@@ -253,33 +283,33 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="egC-gz-9Ku">
-                                <rect key="frame" x="20" y="151" width="728" height="44"/>
+                                <rect key="frame" x="20" y="81" width="728" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Use my current location">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="MMJ-TG-Dui" kind="push" id="Hhd-O2-Fwo"/>
+                                    <action selector="doCurrentLocation:" destination="37o-0O-Dua" eventType="touchUpInside" id="bQ1-yv-5Bp"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JU0-Gw-gC0">
-                                <rect key="frame" x="20" y="403" width="728" height="44"/>
+                                <rect key="frame" x="20" y="303" width="728" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Go">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="MMJ-TG-Dui" kind="push" id="f8V-r7-TXP"/>
+                                    <action selector="doRequestedLocation:" destination="37o-0O-Dua" eventType="touchUpInside" id="pbT-TW-flX"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ikU-o5-LQ4">
-                                <rect key="frame" x="20" y="356" width="728" height="30"/>
+                                <rect key="frame" x="20" y="256" width="728" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Enter a location:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I0L-aA-I5i">
-                                <rect key="frame" x="20" y="321" width="728" height="22"/>
+                                <rect key="frame" x="20" y="221" width="728" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -302,6 +332,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Find maps near a location" id="Mw6-mU-7F1"/>
+                    <connections>
+                        <outlet property="requestedLocationField" destination="ikU-o5-LQ4" id="bEf-W6-8YV"/>
+                        <segue destination="MMJ-TG-Dui" kind="push" identifier="currentLocationSegue" id="6QA-ob-8yk"/>
+                        <segue destination="MMJ-TG-Dui" kind="push" identifier="requestedLocationSegue" id="bpd-Mf-H4l"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TKp-Dn-z7r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -370,7 +405,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="f8V-r7-TXP"/>
+        <segue reference="tIE-yA-Ss0"/>
         <segue reference="R8J-1i-KNK"/>
     </inferredMetricsTieBreakers>
 </document>

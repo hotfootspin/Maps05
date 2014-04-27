@@ -35,6 +35,8 @@
     // Do any additional setup after loading the view.
     
     // just testing to see if we can do this nicely
+    [[self view] setBackgroundColor:[UIColor colorWithRed:0.95 green:0.95 blue:0.9 alpha:1.0]];
+    /*
     if ([[map company]  isEqual: @"Shell"])
         [[self view] setBackgroundColor:[UIColor colorWithRed:0.95 green:0.95 blue:0.9 alpha:1.0]];
     else if ([[map company]  isEqual: @"Chevron"])
@@ -47,7 +49,8 @@
         [[self view] setBackgroundColor:[UIColor colorWithRed:0.95 green:0.9 blue:0.85 alpha:1.0]];
     else if ([[map company]  isEqual: @"Texaco"])
         [[self view] setBackgroundColor:[UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1.0]];
-
+    */
+    
     UIView * uiv = (UIView*)[[[self view] subviews] objectAtIndex:0];
     uiv.layer.shadowColor = [UIColor blackColor].CGColor;
     uiv.layer.shadowOffset = CGSizeMake (4, 4);
@@ -58,23 +61,10 @@
     titleView.title = [map title];
     
     NSString *imgPath =  [[NSBundle mainBundle] pathForResource:map.picture ofType:@"png"];
-
-    /*
-    NSLog (@"Image 2");
-    NSLog (@"%@", map.picture);
-    NSLog (@"%@", map.company);
-    NSLog (@"%@", map.title);
-    NSLog (@"%@", map.year);
-    NSLog (@"%@", imgPath);
-    */
-    
     UIImage *img = [UIImage imageWithContentsOfFile:imgPath];
-    // NSLog (@"Image 3");
     [mapImage setImage:img];
-    // NSLog (@"Image 4");
-    
+
     [mapCaption setText:map.description];
-    // [mapCaption setText:map.subtitle];
 }
 
 - (void)didReceiveMemoryWarning
@@ -93,6 +83,34 @@
 
     // Pass the selected object to the new view controller.
     next.map = map;
+}
+
+- (IBAction)bookmarkBeenHere:(id)sender {
+    static bool state = NO;
+    // UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Been Here" message:@"Been Here" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+    // [alert show];
+    UIButton *b = (UIButton*) sender;
+    if (state == YES) {
+        [b setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+        // b.backgroundColor = [UIColor whiteColor];
+    }
+    else {
+        [b setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+        // b.backgroundColor = [UIColor blackColor];
+    }
+    state = !state;
+}
+
+- (IBAction)bookmarkWantToGo:(id)sender {
+    static bool state = NO;
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Want To Go" message:@"Want To Go" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+    [alert show];
+    UIButton *b = (UIButton*) sender;
+    if (state == YES)
+        [b setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+    else
+        [b setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    state = !state;
 }
 
 @end

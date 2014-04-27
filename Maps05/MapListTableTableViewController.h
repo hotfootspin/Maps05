@@ -15,5 +15,7 @@
 
 @property (nonatomic, retain) Map *map;
 @property (nonatomic, assign) BOOL bShowNearby;
+@property (nonatomic, retain) NSArray *sortedMaps;
+@property (weak, nonatomic) IBOutlet UINavigationItem *navBar;
 
 @end

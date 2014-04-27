@@ -18,5 +18,9 @@
 @property (nonatomic, copy) NSString* description;
 @property (nonatomic, assign) double latitude;
 @property (nonatomic, assign) double longitude;
+@property (nonatomic, assign) double distance;
+@property (nonatomic, copy) NSString* direction;
+@property (nonatomic, assign) int index;
+@property (nonatomic, assign) int id;
 
 @end

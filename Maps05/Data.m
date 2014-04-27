@@ -503,6 +503,12 @@
             [maps addObject:[self strToMap:strMap]];
         }
     }
+    
+    for (int i=0; i<maps.count; i++) {
+        Map* m = [maps objectAtIndex:i];
+        m.index = i;
+        m.id = i;
+    }
     return self;
 }
 

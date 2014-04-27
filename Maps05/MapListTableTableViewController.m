@@ -17,8 +17,9 @@
 
 @implementation MapListTableTableViewController
 
-// @synthesize maps;
 @synthesize bShowNearby;
+@synthesize sortedMaps;
+@synthesize navBar;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -33,9 +34,20 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    bShowNearby = YES;
+    // bShowNearby = YES;
+    NSLog(@"%hhd", bShowNearby);
     
     if (bShowNearby) {
+        NSMutableArray *maps = [[Data sharedMapData] getMaps];
+
+        // http://stackoverflow.com/questions/805547/how-to-sort-an-nsmutablearray-with-custom-objects-in-it
+        sortedMaps = [maps sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
+            NSNumber* first = [NSNumber numberWithDouble:[(Map*)a distance]];
+            NSNumber* second = [NSNumber numberWithDouble:[(Map*)b distance]];
+            return [first compare:second];
+        }];
+        
+        navBar.title = @"Nearby locations";
     }
     
     // Uncomment the following line to preserve selection between presentations.
@@ -62,7 +74,10 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [[[Data sharedMapData] getMaps] count];
+    if (bShowNearby)
+        return 5;
+    else
+        return [[[Data sharedMapData] getMaps] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -71,18 +86,24 @@
     
     // Configure the cell...
     int index = indexPath.row;
-    Map *map = [[[Data sharedMapData] getMaps] objectAtIndex:index];
-    NSString *title = [map title];
-    NSString *subtitle = [map subtitle];
-    NSString *company = [map company];
-    // NSString *year = [map year];
+    Map *map;
+    NSString *title, *subtitle, *company;
+    if (bShowNearby) {
+        map = [sortedMaps objectAtIndex:index];
+        title = [map subtitle];
+        // subtitle = [[NSString stringWithFormat:@"%4.0f", [map distance]/1609.0 ] stringByAppendingString:@" miles (as the crow flies)"];
+        subtitle = [NSString stringWithFormat:@"%4.0f miles %@ (as the crow flies)", [map distance]/1609.0, [map direction]];
+    }
+    else {
+        map = [[[Data sharedMapData] getMaps] objectAtIndex:index];
+        title = [map title];
+        subtitle = [map subtitle];
+        company = [map company];
+    }
+    
     [[cell textLabel] setText:title];
-    // [[cell detailTextLabel] setText:[[company stringByAppendingString:@", "] stringByAppendingString: year]];
-    // [[cell detailTextLabel] setText:[[company stringByAppendingString:@", "] stringByAppendingString: year]];
-    
-    // [[cell detailTextLabel] setText:[[NSArray arrayWithObjects:subtitle, @" [", company, @"]", nil] componentsJoinedByString:@""]];
     [[cell detailTextLabel] setText:subtitle];
-    
+
     // NSLog(@"%@", company);
     
     NSString *imgPath;
@@ -98,7 +119,6 @@
         imgPath = [[NSBundle mainBundle] pathForResource:@"calso-logo-2" ofType:@"png"];
     else if ([company  isEqual: @"Texaco"])
         imgPath = [[NSBundle mainBundle] pathForResource:@"texaco-logo" ofType:@"png"];
-    // NSLog(@"%@", imgPath);
     [[cell imageView] setImage:[UIImage imageWithContentsOfFile:imgPath]];
     return cell;
 }
@@ -151,7 +171,10 @@
     
     // Pass the selected object to the new view controller.
     NSIndexPath *selectedRowIndex = [self.tableView indexPathForSelectedRow];
-    next.map = [[[Data sharedMapData] getMaps] objectAtIndex:selectedRowIndex.row];
+    if (bShowNearby)
+        next.map = [sortedMaps objectAtIndex:selectedRowIndex.row];
+    else
+        next.map = [[[Data sharedMapData] getMaps] objectAtIndex:selectedRowIndex.row];
 }
 
 @end
