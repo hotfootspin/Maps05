@@ -43,7 +43,7 @@
             Map *map = [[Map alloc] init];
             map.title = @"Arkansas, Louisiana, Mississippi";
             map.subtitle = @"Old State House";
-            map.company = @"KYSO";
+            map.company = @"Esso";
             map.year = @"1959";
             map.picture = @"Arkansas_1959_Esso_crop";
             map.description = @"Old State House, Little Rock, Ark.";
@@ -507,7 +507,7 @@
     for (int i=0; i<maps.count; i++) {
         Map* m = [maps objectAtIndex:i];
         m.index = i;
-        m.id = i;
+        m.mapId = i;
     }
     return self;
 }

@@ -21,6 +21,6 @@
 @property (nonatomic, assign) double distance;
 @property (nonatomic, copy) NSString* direction;
 @property (nonatomic, assign) int index;
-@property (nonatomic, assign) int id;
+@property (nonatomic, assign) int mapId;
 
 @end

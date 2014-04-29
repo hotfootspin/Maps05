@@ -93,7 +93,7 @@
     else if ([company  isEqual: @"Chevron"])
         imgPath = [[NSBundle mainBundle] pathForResource:@"chevron-logo-2" ofType:@"png"];
     else if ([company  isEqual: @"KYSO"])
-        imgPath = [[NSBundle mainBundle] pathForResource:@"kyso-logo-square-2" ofType:@"png"];
+        imgPath = [[NSBundle mainBundle] pathForResource:@"kyso-circles-logo" ofType:@"png"];
     else if ([company  isEqual: @"Esso"])
         imgPath = [[NSBundle mainBundle] pathForResource:@"esso-logo-square-2" ofType:@"png"];
     else if ([company  isEqual: @"Calso"])

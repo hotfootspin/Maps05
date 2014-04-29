@@ -92,13 +92,20 @@
         if (dx > 0) dir_x = 'E'; else dir_x = 'W';
         if (dy == 0)
             map.direction = [NSString stringWithFormat:@"%s", dir_x == 'E' ? "East" : "West" ];
-        double ratio = abs (dx/dy);
-        if (ratio > 2.41)
-            map.direction = [NSString stringWithFormat:@"%s", dir_x == 'E' ? "East" : "West" ];
-        else if (ratio < 0.41)
-            map.direction = [NSString stringWithFormat:@"%s", dir_y == 'N' ? "North" : "South" ];
+        double ratio = fabs (dx/dy);
+        NSLog(@"Ratio = %f / %f = %f", dx, dy, ratio);
+        if (ratio > 4.80)
+            map.direction = [NSString stringWithFormat:@"%s", dir_x == 'E' ? "East" : "West" ]; // E or W
+        else if (ratio > 1.50)
+            map.direction = [NSString stringWithFormat:@"%c%c%c", dir_x, dir_y, dir_x ]; // ENE
+        else if (ratio > 0.67)
+            map.direction = [NSString stringWithFormat:@"%c%c", dir_y, dir_x ]; // NE
+        else if (ratio > 0.20)
+            map.direction = [NSString stringWithFormat:@"%c%c%c", dir_y, dir_y, dir_x ]; // NNE
         else
-            map.direction = [NSString stringWithFormat:@"%c%c", dir_y, dir_x ];
+            map.direction = [NSString stringWithFormat:@"%s", dir_y == 'N' ? "North" : "South" ]; // N or S
+        // if (ratio > 2.41)
+        // else if (ratio < 0.41)
     }
 }
 

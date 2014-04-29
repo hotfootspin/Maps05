@@ -27,6 +27,8 @@
 		5D359DA918FF0C8D00F2B14A /* MapListTableTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D359DA818FF0C8D00F2B14A /* MapListTableTableViewController.m */; };
 		5D359DAC18FF158200F2B14A /* Map.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D359DAB18FF158200F2B14A /* Map.m */; };
 		5D5D4504190B82F90094B0D5 /* Storyboard_ipad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D5D4503190B82F90094B0D5 /* Storyboard_ipad.storyboard */; };
+		5D79FE6D190F06C800F6B574 /* UserMapBookmark.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D79FE6C190F06C800F6B574 /* UserMapBookmark.m */; };
+		5D79FE70190F83FD00F6B574 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D79FE6F190F83FD00F6B574 /* HomeViewController.m */; };
 		5D9E5DBB1900EF0000E5A9EE /* Data.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9E5DBA1900EF0000E5A9EE /* Data.m */; };
 		5DA395681903850B009C0B3B /* MBMapPin.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA395671903850B009C0B3B /* MBMapPin.m */; };
 		5DA3956A1903853E009C0B3B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DA395691903853E009C0B3B /* MapKit.framework */; };
@@ -73,6 +75,10 @@
 		5D359DAA18FF158200F2B14A /* Map.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Map.h; sourceTree = "<group>"; };
 		5D359DAB18FF158200F2B14A /* Map.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Map.m; sourceTree = "<group>"; };
 		5D5D4503190B82F90094B0D5 /* Storyboard_ipad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard_ipad.storyboard; sourceTree = "<group>"; };
+		5D79FE6B190F06C800F6B574 /* UserMapBookmark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserMapBookmark.h; sourceTree = "<group>"; };
+		5D79FE6C190F06C800F6B574 /* UserMapBookmark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserMapBookmark.m; sourceTree = "<group>"; };
+		5D79FE6E190F83FD00F6B574 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		5D79FE6F190F83FD00F6B574 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		5D9E5DB91900EF0000E5A9EE /* Data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Data.h; sourceTree = "<group>"; };
 		5D9E5DBA1900EF0000E5A9EE /* Data.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Data.m; sourceTree = "<group>"; };
 		5DA395661903850B009C0B3B /* MBMapPin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBMapPin.h; sourceTree = "<group>"; };
@@ -155,12 +161,16 @@
 				5D359DAA18FF158200F2B14A /* Map.h */,
 				5D359DAB18FF158200F2B14A /* Map.m */,
 				5D359D8118FEE45B00F2B14A /* AppDelegate.h */,
+				5D79FE6E190F83FD00F6B574 /* HomeViewController.h */,
+				5D79FE6F190F83FD00F6B574 /* HomeViewController.m */,
 				5D359D8218FEE45B00F2B14A /* AppDelegate.m */,
 				5D9E5DB91900EF0000E5A9EE /* Data.h */,
 				5D9E5DBA1900EF0000E5A9EE /* Data.m */,
 				5DA395661903850B009C0B3B /* MBMapPin.h */,
 				5DA395671903850B009C0B3B /* MBMapPin.m */,
 				5D359D8718FEE45B00F2B14A /* Images.xcassets */,
+				5D79FE6B190F06C800F6B574 /* UserMapBookmark.h */,
+				5D79FE6C190F06C800F6B574 /* UserMapBookmark.m */,
 				5D359D8418FEE45B00F2B14A /* Maps05.xcdatamodeld */,
 				5D359DA518FEE62200F2B14A /* Storyboard.storyboard */,
 				5D5D4503190B82F90094B0D5 /* Storyboard_ipad.storyboard */,
@@ -319,10 +329,12 @@
 				5D359DAC18FF158200F2B14A /* Map.m in Sources */,
 				5D359D8618FEE45B00F2B14A /* Maps05.xcdatamodeld in Sources */,
 				5D07063F18FFAF120006D518 /* MapViewController.m in Sources */,
+				5D79FE6D190F06C800F6B574 /* UserMapBookmark.m in Sources */,
 				5D9E5DBB1900EF0000E5A9EE /* Data.m in Sources */,
 				5D359D7F18FEE45B00F2B14A /* main.m in Sources */,
 				5D359DA918FF0C8D00F2B14A /* MapListTableTableViewController.m in Sources */,
 				5DA3956F19038795009C0B3B /* PinViewController.m in Sources */,
+				5D79FE70190F83FD00F6B574 /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -543,7 +555,6 @@
 				5D359D8518FEE45B00F2B14A /* Maps05.xcdatamodel */,
 			);
 			currentVersion = 5D359D8518FEE45B00F2B14A /* Maps05.xcdatamodel */;
-			name = Maps05.xcdatamodeld;
 			path = Maps05.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

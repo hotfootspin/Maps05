@@ -17,33 +17,47 @@
                         <rect key="frame" x="0.0" y="64" width="768" height="960"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Jacksonville" translatesAutoresizingMaskIntoConstraints="NO" id="5iJ-MZ-BLw">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Jacksonville" translatesAutoresizingMaskIntoConstraints="NO" id="5iJ-MZ-BLw">
                                 <rect key="frame" x="-3" y="20" width="781" height="748"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="748" id="Lrr-NW-wPB"/>
+                                </constraints>
                             </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Jacksonville Community Center" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="728" translatesAutoresizingMaskIntoConstraints="NO" id="F43-cj-ehV">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jacksonville Community Center" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="728" translatesAutoresizingMaskIntoConstraints="NO" id="F43-cj-ehV">
                                 <rect key="frame" x="20" y="770" width="728" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="8tM-Kv-Pud"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="16"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y6G-lM-2UJ">
-                                <rect key="frame" x="316" y="834" width="140" height="44"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y6G-lM-2UJ">
+                                <rect key="frame" x="280" y="871" width="200" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="I have been here">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="51t-3w-er0"/>
+                                    <constraint firstAttribute="width" constant="200" id="tdh-KZ-TmU"/>
+                                </constraints>
+                                <state key="normal" title="  I have been here" image="red_x_24">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <state key="selected" image="green_check"/>
                                 <connections>
                                     <action selector="bookmarkBeenHere:" destination="ck8-Zr-rl5" eventType="touchUpInside" id="b6Q-cE-3B0"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Am-Yi-kfU">
-                                <rect key="frame" x="316" y="885" width="142" height="44"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Am-Yi-kfU">
+                                <rect key="frame" x="280" y="905" width="200" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="I want to go here">
+                                <state key="normal" title="  I want to go here" image="red_x_24">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <state key="selected" image="green_check"/>
                                 <connections>
                                     <action selector="bookmarkWantToGo:" destination="ck8-Zr-rl5" eventType="touchUpInside" id="iyJ-E7-aRV"/>
                                 </connections>
@@ -51,16 +65,18 @@
                         </subviews>
                         <color key="backgroundColor" red="0.9334511861" green="0.95832313690000004" blue="0.96780907849999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="2Am-Yi-kfU" firstAttribute="width" secondItem="y6G-lM-2UJ" secondAttribute="width" id="0qM-jD-xcP"/>
+                            <constraint firstItem="y6G-lM-2UJ" firstAttribute="top" secondItem="F43-cj-ehV" secondAttribute="bottom" constant="65" id="4eq-6R-5j9"/>
                             <constraint firstAttribute="centerX" secondItem="2Am-Yi-kfU" secondAttribute="centerX" constant="-3" id="576-5D-kxD"/>
-                            <constraint firstItem="kgy-lN-O8j" firstAttribute="top" secondItem="5iJ-MZ-BLw" secondAttribute="bottom" constant="192" id="6f9-z4-y9P"/>
-                            <constraint firstItem="5iJ-MZ-BLw" firstAttribute="top" secondItem="fOZ-qu-zNT" secondAttribute="bottom" constant="20" id="ANq-0z-oGm"/>
-                            <constraint firstAttribute="centerX" secondItem="y6G-lM-2UJ" secondAttribute="centerX" constant="-2" id="D3C-9Q-bNt"/>
-                            <constraint firstAttribute="centerX" secondItem="5iJ-MZ-BLw" secondAttribute="centerX" constant="-3.5" id="IVC-ff-c07"/>
-                            <constraint firstItem="kgy-lN-O8j" firstAttribute="top" secondItem="F43-cj-ehV" secondAttribute="bottom" constant="154" id="UuC-Dd-Sgb"/>
-                            <constraint firstAttribute="centerX" secondItem="F43-cj-ehV" secondAttribute="centerX" id="bE4-Jv-4Qa"/>
+                            <constraint firstAttribute="trailing" secondItem="F43-cj-ehV" secondAttribute="trailing" constant="20" symbolic="YES" id="ChQ-xr-oUU"/>
+                            <constraint firstItem="F43-cj-ehV" firstAttribute="leading" secondItem="BlL-6u-gs3" secondAttribute="leading" constant="20" symbolic="YES" id="SJc-6f-D9g"/>
+                            <constraint firstItem="y6G-lM-2UJ" firstAttribute="leading" secondItem="2Am-Yi-kfU" secondAttribute="leading" id="Vvt-46-hy7"/>
+                            <constraint firstItem="kgy-lN-O8j" firstAttribute="top" secondItem="5iJ-MZ-BLw" secondAttribute="bottom" constant="192" id="WvN-s4-QzO"/>
+                            <constraint firstItem="y6G-lM-2UJ" firstAttribute="trailing" secondItem="2Am-Yi-kfU" secondAttribute="trailing" id="afD-d8-13M"/>
+                            <constraint firstAttribute="trailing" secondItem="5iJ-MZ-BLw" secondAttribute="trailing" constant="-10" id="bMm-0R-oQi"/>
+                            <constraint firstItem="F43-cj-ehV" firstAttribute="top" secondItem="5iJ-MZ-BLw" secondAttribute="bottom" constant="2" id="cb9-n3-dJB"/>
                             <constraint firstItem="kgy-lN-O8j" firstAttribute="top" secondItem="2Am-Yi-kfU" secondAttribute="bottom" constant="32" id="dUQ-5B-R6s"/>
-                            <constraint firstItem="kgy-lN-O8j" firstAttribute="top" secondItem="y6G-lM-2UJ" secondAttribute="bottom" constant="83" id="uoR-ah-uxG"/>
+                            <constraint firstItem="5iJ-MZ-BLw" firstAttribute="top" secondItem="BlL-6u-gs3" secondAttribute="top" constant="20" symbolic="YES" id="o9F-U1-3bx"/>
+                            <constraint firstItem="5iJ-MZ-BLw" firstAttribute="leading" secondItem="BlL-6u-gs3" secondAttribute="leading" constant="-3" id="zUD-rK-gk3"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Jacksonville" id="HXI-dD-sjz">
@@ -71,9 +87,11 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="beenHereButton" destination="y6G-lM-2UJ" id="RC5-LS-0uK"/>
                         <outlet property="mapCaption" destination="F43-cj-ehV" id="Pgh-Pj-TFw"/>
                         <outlet property="mapImage" destination="5iJ-MZ-BLw" id="cQL-sk-V3H"/>
                         <outlet property="titleView" destination="HXI-dD-sjz" id="gOx-xw-vp2"/>
+                        <outlet property="wantToGoButton" destination="2Am-Yi-kfU" id="jFj-pV-HO1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2l3-cX-v4K" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -190,10 +208,10 @@
             </objects>
             <point key="canvasLocation" x="1350" y="-28"/>
         </scene>
-        <!--View Controller - Map Art Map-->
+        <!--Home View Controller - Map Art Map-->
         <scene sceneID="xnK-dY-loe">
             <objects>
-                <viewController id="KaO-La-gKG" sceneMemberID="viewController">
+                <viewController id="KaO-La-gKG" customClass="HomeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ssC-fi-Joe"/>
                         <viewControllerLayoutGuide type="bottom" id="lOF-OL-9iP"/>
@@ -206,28 +224,35 @@
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="960"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Map Art Map" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="krh-2z-Qrb">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Map Art Map" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="krh-2z-Qrb">
                                 <rect key="frame" x="423" y="40" width="321" height="53"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="40"/>
                                 <color key="textColor" red="0.65238360969387754" green="0.32196932988424892" blue="0.13338915146918504" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UTh-PL-WtP">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UTh-PL-WtP">
                                 <rect key="frame" x="423" y="121" width="321" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="47" id="coh-Uf-Djh"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                                 <state key="normal" title="View a list of maps">
                                     <color key="titleColor" red="0.65238360969999998" green="0.32196932989999999" blue="0.1333891515" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" cocoaTouchSystemColor="lightTextColor"/>
                                 </state>
                                 <connections>
-                                    <segue destination="MMJ-TG-Dui" kind="push" id="tIE-yA-Ss0"/>
+                                    <action selector="viewListButton:" destination="KaO-La-gKG" eventType="touchUpInside" id="b6L-HK-i5O"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1AZ-nJ-pJl">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1AZ-nJ-pJl">
                                 <rect key="frame" x="423" y="181" width="321" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="321" id="4Kq-Zb-tVK"/>
+                                    <constraint firstAttribute="height" constant="47" id="Qj2-SU-U23"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                                 <state key="normal" title="View a map of locations">
                                     <color key="titleColor" red="0.65238360969999998" green="0.32196932989999999" blue="0.1333891515" alpha="1" colorSpace="calibratedRGB"/>
@@ -237,9 +262,12 @@
                                     <segue destination="Czy-5Z-dIH" kind="push" id="xL9-Qg-uXd"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CxK-of-2wv">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CxK-of-2wv">
                                 <rect key="frame" x="423" y="241" width="321" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="47" id="Ues-rf-kQ4"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                                 <state key="normal" title="Find locations near me">
                                     <color key="titleColor" red="0.65238360969999998" green="0.32196932989999999" blue="0.1333891515" alpha="1" colorSpace="calibratedRGB"/>
@@ -249,18 +277,62 @@
                                     <segue destination="37o-0O-Dua" kind="push" id="LNK-ij-gZQ"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wlI-bB-IFp">
+                                <rect key="frame" x="423" y="301" width="321" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="47" id="baX-yt-qeU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                <state key="normal" title="Places I Have Been">
+                                    <color key="titleColor" red="0.65238360969999998" green="0.32196932989999999" blue="0.1333891515" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" cocoaTouchSystemColor="lightTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="beenThereButton:" destination="KaO-La-gKG" eventType="touchUpInside" id="lAv-wb-Z6W"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qoq-fO-sXL">
+                                <rect key="frame" x="423" y="361" width="321" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                <state key="normal" title="Places I Want To Go">
+                                    <color key="titleColor" red="0.65238360969999998" green="0.32196932989999999" blue="0.1333891515" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" cocoaTouchSystemColor="lightTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="wantToGoButton:" destination="KaO-La-gKG" eventType="touchUpInside" id="FsU-d2-aS7"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="vSP-xS-FXN" firstAttribute="width" secondItem="qi2-nY-bHp" secondAttribute="width" id="DCU-fR-mf5"/>
-                            <constraint firstAttribute="trailing" secondItem="1AZ-nJ-pJl" secondAttribute="trailing" constant="24" id="RP5-9j-LaJ"/>
+                            <constraint firstItem="qoq-fO-sXL" firstAttribute="leading" secondItem="wlI-bB-IFp" secondAttribute="leading" id="DCh-hE-tzw"/>
+                            <constraint firstItem="1AZ-nJ-pJl" firstAttribute="top" secondItem="UTh-PL-WtP" secondAttribute="bottom" constant="13" id="HwN-Co-d1u"/>
+                            <constraint firstItem="1AZ-nJ-pJl" firstAttribute="top" secondItem="qi2-nY-bHp" secondAttribute="top" constant="181" id="JLI-Kp-eC5"/>
+                            <constraint firstItem="UTh-PL-WtP" firstAttribute="leading" secondItem="1AZ-nJ-pJl" secondAttribute="leading" id="MUo-AJ-Qk2"/>
+                            <constraint firstItem="wlI-bB-IFp" firstAttribute="trailing" secondItem="CxK-of-2wv" secondAttribute="trailing" id="OtB-Ha-v9g"/>
+                            <constraint firstItem="CxK-of-2wv" firstAttribute="trailing" secondItem="1AZ-nJ-pJl" secondAttribute="trailing" id="REF-6v-kwU"/>
+                            <constraint firstItem="wlI-bB-IFp" firstAttribute="top" secondItem="CxK-of-2wv" secondAttribute="bottom" constant="13" id="TcH-32-aXb"/>
+                            <constraint firstItem="krh-2z-Qrb" firstAttribute="top" secondItem="ssC-fi-Joe" secondAttribute="bottom" constant="40" id="Ui4-Pb-fYS"/>
                             <constraint firstItem="vSP-xS-FXN" firstAttribute="height" secondItem="qi2-nY-bHp" secondAttribute="height" id="XVo-ot-W5a"/>
-                            <constraint firstAttribute="trailing" secondItem="CxK-of-2wv" secondAttribute="trailing" constant="24" id="XfB-Gg-xlx"/>
-                            <constraint firstAttribute="trailing" secondItem="krh-2z-Qrb" secondAttribute="trailing" constant="24" id="nwP-ug-QZK"/>
-                            <constraint firstAttribute="trailing" secondItem="UTh-PL-WtP" secondAttribute="trailing" constant="24" id="s0Y-rC-Pwo"/>
+                            <constraint firstItem="CxK-of-2wv" firstAttribute="top" secondItem="1AZ-nJ-pJl" secondAttribute="bottom" constant="13" id="bm8-GW-8bQ"/>
+                            <constraint firstItem="UTh-PL-WtP" firstAttribute="trailing" secondItem="1AZ-nJ-pJl" secondAttribute="trailing" id="e0i-sG-4ZA"/>
+                            <constraint firstItem="krh-2z-Qrb" firstAttribute="leading" secondItem="UTh-PL-WtP" secondAttribute="leading" id="fBC-Qe-xKW"/>
+                            <constraint firstItem="qoq-fO-sXL" firstAttribute="trailing" secondItem="wlI-bB-IFp" secondAttribute="trailing" id="fYL-ks-pvo"/>
+                            <constraint firstItem="qoq-fO-sXL" firstAttribute="top" secondItem="wlI-bB-IFp" secondAttribute="bottom" constant="13" id="kZf-gB-Rik"/>
+                            <constraint firstItem="UTh-PL-WtP" firstAttribute="top" secondItem="krh-2z-Qrb" secondAttribute="bottom" constant="28" id="lnd-2d-TwZ"/>
+                            <constraint firstItem="CxK-of-2wv" firstAttribute="leading" secondItem="1AZ-nJ-pJl" secondAttribute="leading" id="myT-at-bCC"/>
+                            <constraint firstItem="krh-2z-Qrb" firstAttribute="trailing" secondItem="UTh-PL-WtP" secondAttribute="trailing" id="olq-n9-BJ2"/>
+                            <constraint firstItem="wlI-bB-IFp" firstAttribute="leading" secondItem="CxK-of-2wv" secondAttribute="leading" id="qWf-Yi-ZBf"/>
+                            <constraint firstAttribute="trailing" secondItem="qoq-fO-sXL" secondAttribute="trailing" constant="24" id="s6R-J3-yrs"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Map Art Map" id="VzG-HQ-K9a"/>
+                    <connections>
+                        <segue destination="MMJ-TG-Dui" kind="push" identifier="bookmarkSegue" id="rfj-NJ-m8f"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VMS-Wu-6l7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -278,11 +350,11 @@
                         <rect key="frame" x="0.0" y="64" width="768" height="960"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="splash_conn_river" translatesAutoresizingMaskIntoConstraints="NO" id="1T9-qy-LX4">
-                                <rect key="frame" x="0.0" y="0.0" width="768" height="965"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash_conn_river" translatesAutoresizingMaskIntoConstraints="NO" id="1T9-qy-LX4">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="960"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="egC-gz-9Ku">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="egC-gz-9Ku">
                                 <rect key="frame" x="20" y="81" width="728" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Use my current location">
@@ -292,7 +364,7 @@
                                     <action selector="doCurrentLocation:" destination="37o-0O-Dua" eventType="touchUpInside" id="bQ1-yv-5Bp"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JU0-Gw-gC0">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JU0-Gw-gC0">
                                 <rect key="frame" x="20" y="303" width="728" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Go">
@@ -302,13 +374,13 @@
                                     <action selector="doRequestedLocation:" destination="37o-0O-Dua" eventType="touchUpInside" id="pbT-TW-flX"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ikU-o5-LQ4">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ikU-o5-LQ4">
                                 <rect key="frame" x="20" y="256" width="728" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Enter a location:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I0L-aA-I5i">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter a location:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I0L-aA-I5i">
                                 <rect key="frame" x="20" y="221" width="728" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
@@ -319,16 +391,22 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="height" secondItem="1T9-qy-LX4" secondAttribute="height" id="4E3-JT-1iK"/>
-                            <constraint firstAttribute="width" secondItem="1T9-qy-LX4" secondAttribute="width" id="DW8-eA-WsR"/>
+                            <constraint firstItem="I0L-aA-I5i" firstAttribute="top" secondItem="egC-gz-9Ku" secondAttribute="bottom" constant="97" id="3mf-Rb-Gs5"/>
                             <constraint firstAttribute="trailing" secondItem="ikU-o5-LQ4" secondAttribute="trailing" constant="20" id="I37-Kt-Iga"/>
                             <constraint firstItem="egC-gz-9Ku" firstAttribute="leading" secondItem="9TR-c2-lB3" secondAttribute="leading" constant="20" id="OsR-KA-2mi"/>
-                            <constraint firstAttribute="trailing" secondItem="I0L-aA-I5i" secondAttribute="trailing" constant="20" id="Shr-ii-7pa"/>
-                            <constraint firstItem="JU0-Gw-gC0" firstAttribute="leading" secondItem="9TR-c2-lB3" secondAttribute="leading" constant="20" id="Uki-1r-V3E"/>
+                            <constraint firstItem="I0L-aA-I5i" firstAttribute="top" secondItem="9TR-c2-lB3" secondAttribute="top" constant="221" id="UtS-b5-zLt"/>
                             <constraint firstItem="ikU-o5-LQ4" firstAttribute="leading" secondItem="9TR-c2-lB3" secondAttribute="leading" constant="20" id="XeY-gq-9Q1"/>
-                            <constraint firstAttribute="trailing" secondItem="JU0-Gw-gC0" secondAttribute="trailing" constant="20" id="npu-Z5-LrD"/>
+                            <constraint firstItem="1T9-qy-LX4" firstAttribute="centerX" secondItem="JU0-Gw-gC0" secondAttribute="centerX" id="Xm8-bb-4zk"/>
+                            <constraint firstItem="1T9-qy-LX4" firstAttribute="top" secondItem="9TR-c2-lB3" secondAttribute="top" id="ZxJ-3A-juu"/>
+                            <constraint firstItem="JU0-Gw-gC0" firstAttribute="trailing" secondItem="ikU-o5-LQ4" secondAttribute="trailing" id="bai-PG-WjB"/>
+                            <constraint firstItem="I0L-aA-I5i" firstAttribute="leading" secondItem="ikU-o5-LQ4" secondAttribute="leading" id="dqq-3k-DoV"/>
+                            <constraint firstItem="ikU-o5-LQ4" firstAttribute="top" secondItem="I0L-aA-I5i" secondAttribute="bottom" constant="13" id="gDw-ej-nnb"/>
+                            <constraint firstItem="JU0-Gw-gC0" firstAttribute="top" secondItem="ikU-o5-LQ4" secondAttribute="bottom" constant="17" id="gvH-Nr-8r4"/>
                             <constraint firstAttribute="trailing" secondItem="egC-gz-9Ku" secondAttribute="trailing" constant="20" id="p50-lc-VEO"/>
-                            <constraint firstItem="I0L-aA-I5i" firstAttribute="leading" secondItem="9TR-c2-lB3" secondAttribute="leading" constant="20" id="pth-66-U1E"/>
+                            <constraint firstItem="1T9-qy-LX4" firstAttribute="leading" secondItem="9TR-c2-lB3" secondAttribute="leading" id="pC3-y9-hLo"/>
+                            <constraint firstItem="I0L-aA-I5i" firstAttribute="trailing" secondItem="ikU-o5-LQ4" secondAttribute="trailing" id="sIC-X1-Qyc"/>
+                            <constraint firstItem="JU0-Gw-gC0" firstAttribute="leading" secondItem="ikU-o5-LQ4" secondAttribute="leading" id="tqo-bR-tb0"/>
+                            <constraint firstAttribute="bottom" secondItem="1T9-qy-LX4" secondAttribute="bottom" id="xQu-I2-I9R"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Find maps near a location" id="Mw6-mU-7F1"/>
@@ -354,15 +432,17 @@
                         <rect key="frame" x="0.0" y="64" width="768" height="960"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ObA-1l-dch">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ObA-1l-dch">
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="960"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="height" secondItem="ObA-1l-dch" secondAttribute="height" id="Vmy-zb-gMe"/>
-                            <constraint firstAttribute="width" secondItem="ObA-1l-dch" secondAttribute="width" id="cOo-Tv-KbS"/>
+                            <constraint firstAttribute="bottom" secondItem="ObA-1l-dch" secondAttribute="bottom" id="2yM-rr-BIX"/>
+                            <constraint firstItem="ObA-1l-dch" firstAttribute="top" secondItem="nbt-hl-WTj" secondAttribute="top" id="BLh-YO-czz"/>
+                            <constraint firstItem="ObA-1l-dch" firstAttribute="leading" secondItem="nbt-hl-WTj" secondAttribute="leading" id="cTq-60-FQY"/>
+                            <constraint firstAttribute="trailing" secondItem="ObA-1l-dch" secondAttribute="trailing" id="hmS-Lx-bG9"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="kM7-n0-9vW"/>
@@ -397,6 +477,8 @@
     <resources>
         <image name="Jacksonville" width="691" height="1600"/>
         <image name="calso-logo" width="82" height="86"/>
+        <image name="green_check" width="24" height="24"/>
+        <image name="red_x_24" width="24" height="24"/>
         <image name="splash_conn_river" width="384" height="565"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -405,7 +487,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="tIE-yA-Ss0"/>
+        <segue reference="rfj-NJ-m8f"/>
         <segue reference="R8J-1i-KNK"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -122,7 +122,7 @@
             
         case 7:
             cell.textLabel.text = @"Map ID";
-            cell.detailTextLabel.text = [[NSNumber numberWithInt:[map id]] stringValue];
+            cell.detailTextLabel.text = [[NSNumber numberWithInt:[map mapId]] stringValue];
             break;
             
         case 8:

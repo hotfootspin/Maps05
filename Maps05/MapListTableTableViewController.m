@@ -10,6 +10,7 @@
 #import "MapViewController.h"
 #import "Map.h"
 #import "Data.h"
+#import "UserMapBookmark.h"
 
 @interface MapListTableTableViewController ()
 
@@ -18,8 +19,14 @@
 @implementation MapListTableTableViewController
 
 @synthesize bShowNearby;
+@synthesize bShowBeenThere;
+@synthesize bShowWantToGo;
 @synthesize sortedMaps;
+@synthesize subsetMaps;
 @synthesize navBar;
+@synthesize myAppDelegate;
+@synthesize context;
+@synthesize userMapBookmarks;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -50,6 +57,45 @@
         navBar.title = @"Nearby locations";
     }
     
+    else if (bShowBeenThere || bShowWantToGo) {
+        // Get the list of bookmarks from Core Data
+        myAppDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+        context = [myAppDelegate managedObjectContext];
+        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"MapBookmark"];
+
+        NSPredicate *predicate;
+        if (bShowBeenThere)
+            predicate = [NSPredicate predicateWithFormat:@"beenHere == 1"];
+        else
+            predicate = [NSPredicate predicateWithFormat:@"wantToGo == 1"];
+        
+        [fetchRequest setPredicate:predicate];
+        userMapBookmarks = [[context executeFetchRequest:fetchRequest error:nil] mutableCopy];
+        NSMutableArray *mapIndexes = [[NSMutableArray alloc] init];
+        int count = [userMapBookmarks count];
+        for (int i=0; i<count; i++) {
+            UserMapBookmark * umbm = (UserMapBookmark *)[userMapBookmarks objectAtIndex:i];
+            // only add each index once
+            if (![mapIndexes containsObject:umbm.mapId]) {
+                [mapIndexes addObject:umbm.mapId];
+            }
+        }
+        
+        NSMutableArray *maps = [[Data sharedMapData] getMaps];
+        int nMaps = [maps count];
+        subsetMaps = [[NSMutableArray alloc] init];
+        for (int i=0; i<nMaps; ++i) {
+            Map* thisMap = [maps objectAtIndex:i];
+            if ([mapIndexes containsObject:[NSNumber numberWithInt:thisMap.mapId]])
+                [subsetMaps addObject:[maps objectAtIndex:i]];
+        }
+
+        if (bShowBeenThere)
+            navBar.title = @"Places I Have Been";
+        else
+            navBar.title = @"Places I Want To Go";
+    }
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -76,6 +122,8 @@
     // Return the number of rows in the section.
     if (bShowNearby)
         return 5;
+    else if (bShowBeenThere || bShowWantToGo)
+        return [subsetMaps count];
     else
         return [[[Data sharedMapData] getMaps] count];
 }
@@ -90,9 +138,16 @@
     NSString *title, *subtitle, *company;
     if (bShowNearby) {
         map = [sortedMaps objectAtIndex:index];
-        title = [map subtitle];
+        title = [map description];
         // subtitle = [[NSString stringWithFormat:@"%4.0f", [map distance]/1609.0 ] stringByAppendingString:@" miles (as the crow flies)"];
         subtitle = [NSString stringWithFormat:@"%4.0f miles %@ (as the crow flies)", [map distance]/1609.0, [map direction]];
+        company = [map company];
+    }
+    else if (bShowWantToGo || bShowBeenThere) {
+        map = [subsetMaps objectAtIndex:index];
+        title = [map title];
+        subtitle = [map subtitle];
+        company = [map company];
     }
     else {
         map = [[[Data sharedMapData] getMaps] objectAtIndex:index];
@@ -112,7 +167,7 @@
     else if ([company  isEqual: @"Chevron"])
         imgPath = [[NSBundle mainBundle] pathForResource:@"chevron-logo-2" ofType:@"png"];
     else if ([company  isEqual: @"KYSO"])
-        imgPath = [[NSBundle mainBundle] pathForResource:@"kyso-logo-square-2" ofType:@"png"];
+        imgPath = [[NSBundle mainBundle] pathForResource:@"kyso-circles-logo" ofType:@"png"];
     else if ([company  isEqual: @"Esso"])
         imgPath = [[NSBundle mainBundle] pathForResource:@"esso-logo-square-2" ofType:@"png"];
     else if ([company  isEqual: @"Calso"])
@@ -173,6 +228,8 @@
     NSIndexPath *selectedRowIndex = [self.tableView indexPathForSelectedRow];
     if (bShowNearby)
         next.map = [sortedMaps objectAtIndex:selectedRowIndex.row];
+    else if (bShowBeenThere || bShowWantToGo)
+        next.map = [subsetMaps objectAtIndex:selectedRowIndex.row];
     else
         next.map = [[[Data sharedMapData] getMaps] objectAtIndex:selectedRowIndex.row];
 }

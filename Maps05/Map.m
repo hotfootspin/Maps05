@@ -21,6 +21,6 @@
 @synthesize distance;
 @synthesize direction;
 @synthesize index;
-@synthesize id;
+@synthesize mapId;
 
 @end

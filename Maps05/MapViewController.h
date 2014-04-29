@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Map.h"
+#import "AppDelegate.h"
 
 @interface MapViewController : UIViewController
 
@@ -17,6 +18,12 @@
 @property (weak, nonatomic) IBOutlet UINavigationItem *titleView;
 - (IBAction)bookmarkBeenHere:(id)sender;
 - (IBAction)bookmarkWantToGo:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *beenHereButton;
+@property (weak, nonatomic) IBOutlet UIButton *wantToGoButton;
+
+@property (nonatomic, retain) AppDelegate *myAppDelegate;
+@property (nonatomic, retain) NSManagedObjectContext *context;
+@property (strong) NSArray *userMapBookmarks;
 
 @end
 
