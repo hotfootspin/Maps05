@@ -81,7 +81,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"morecell" forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"morecell" ]; //  forIndexPath:indexPath]; // not 5.1
     // UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"morecell"];
     
     /*

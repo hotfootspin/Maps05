@@ -111,6 +111,11 @@
             wantToGoButton.selected = NO;
         }
     }
+    else {
+        // if there is no Core Data for this map, then both checkmarks are OFF
+        beenHereButton.selected = NO;
+        wantToGoButton.selected = NO;
+    }
 }
 
 - (void)didReceiveMemoryWarning
