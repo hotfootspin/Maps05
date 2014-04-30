@@ -8,6 +8,8 @@
 
 #import "MoreTableViewController.h"
 #import "Map.h"
+#import "AppDelegate.h"
+#import "UserMapBookmark.h"
 
 @interface MoreTableViewController ()
 
@@ -16,6 +18,8 @@
 @implementation MoreTableViewController
 
 @synthesize map;
+@synthesize bBeenHere;
+@synthesize bWantToGo;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -29,7 +33,23 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+
+    AppDelegate* myAppDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *context = [myAppDelegate managedObjectContext];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"MapBookmark"];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"mapId == %i", map.mapId];
+    [fetchRequest setPredicate:predicate];
+    NSArray *userMapBookmarks = [[context executeFetchRequest:fetchRequest error:nil] mutableCopy];
+   
+    if ([userMapBookmarks count] > 0) {
+        // There may be more than one match. If so, the last one
+        // seems to be the one that is most recent.
+        //
+        UserMapBookmark *umbm = (UserMapBookmark *) [userMapBookmarks objectAtIndex:[userMapBookmarks count]-1];
+        bWantToGo = ([umbm.wantToGo intValue] == 1);
+        bBeenHere = ([umbm.beenHere intValue] == 1);
+    }
+
     // [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"morecell"];
 
     // Uncomment the following line to preserve selection between presentations.
@@ -56,7 +76,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 11; // so far
+    return 10; // so far // removed comments field
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -127,19 +147,21 @@
             
         case 8:
             cell.textLabel.text = @"Been Here";
-            cell.detailTextLabel.text = @"";
+            cell.detailTextLabel.text = bBeenHere ? @"Yes" : @"No";
             break;
             
         case 9:
             cell.textLabel.text = @"Want to go";
-            cell.detailTextLabel.text = @"";
+            cell.detailTextLabel.text = bWantToGo ? @"Yes" : @"No";
             break;
             
-        case 10:
+        /*
+         case 10:
             cell.textLabel.text = @"Comments";
             cell.detailTextLabel.text = @"";
             cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
             break;
+         */
             
         default:
             break;

@@ -9,6 +9,7 @@
 #import "MapViewController.h"
 #import "MoreTableViewController.h"
 #import "UserMapBookmark.h"
+#import "Data.h"
 
 @interface MapViewController ()
 
@@ -25,6 +26,7 @@
 @synthesize userMapBookmarks;
 @synthesize beenHereButton;
 @synthesize wantToGoButton;
+@synthesize subsetIndexes;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -39,7 +41,11 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    [self loadMapData];
+}
+
+- (void) loadMapData
+{
     // Core Data - get the user data
     myAppDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     context = [myAppDelegate managedObjectContext];
@@ -49,7 +55,7 @@
     userMapBookmarks = [[context executeFetchRequest:fetchRequest error:nil] mutableCopy];
 
     // just testing to see if we can do this nicely
-    [[self view] setBackgroundColor:[UIColor colorWithRed:0.95 green:0.95 blue:0.9 alpha:1.0]];
+    // [[self view] setBackgroundColor:[UIColor colorWithRed:0.95 green:0.95 blue:0.9 alpha:1.0]];
     /*
     if ([[map company]  isEqual: @"Shell"])
         [[self view] setBackgroundColor:[UIColor colorWithRed:0.95 green:0.95 blue:0.9 alpha:1.0]];
@@ -227,4 +233,53 @@
     [self saveCoreData];
 }
 
+- (IBAction)btnNext:(id)sender {
+    // find the next map in the list
+    NSMutableArray *maps = [[Data sharedMapData] getMaps];
+    if (subsetIndexes != nil) {
+        for (int i=0; i<subsetIndexes.count; ++i) {
+            if (map.index == [[subsetIndexes objectAtIndex:i] intValue]) {
+                int nextIndex = (i+1) % ([subsetIndexes count]);
+                map = [maps objectAtIndex:[[subsetIndexes objectAtIndex:nextIndex] intValue]];
+                break;
+            }
+        }
+    }
+    else {
+        int nMaps = maps.count;
+        if (map.index >= nMaps-1)
+            map = [maps objectAtIndex:0];
+        else
+            map = [maps objectAtIndex:map.index+1];
+    }
+    [self loadMapData];
+    [self reloadInputViews];
+}
+
+- (IBAction)btnPrevious:(id)sender {
+    // find the previous map in the list
+    NSMutableArray *maps = [[Data sharedMapData] getMaps];
+    if (subsetIndexes != nil) {
+        for (int i=0; i<subsetIndexes.count; ++i) {
+            if (map.index == [[subsetIndexes objectAtIndex:i] intValue]) {
+                int prevIndex;
+                if (i==0)
+                    prevIndex = [subsetIndexes count] - 1; // mod % doesn't work for i<0
+                else
+                    prevIndex = (i-1);
+                map = [maps objectAtIndex:[[subsetIndexes objectAtIndex:prevIndex] intValue]];
+                break;
+            }
+        }
+    }
+    else {
+        int nMaps = maps.count;
+        if (map.index == 0)
+            map = [maps objectAtIndex:nMaps-1];
+        else
+            map = [maps objectAtIndex:map.index-1];
+    }
+    [self loadMapData];
+    [self reloadInputViews];
+}
 @end

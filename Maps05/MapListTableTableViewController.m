@@ -226,10 +226,24 @@
     
     // Pass the selected object to the new view controller.
     NSIndexPath *selectedRowIndex = [self.tableView indexPathForSelectedRow];
-    if (bShowNearby)
+    if (bShowNearby) {
         next.map = [sortedMaps objectAtIndex:selectedRowIndex.row];
-    else if (bShowBeenThere || bShowWantToGo)
+        NSMutableArray *sortedIndexes = [[NSMutableArray alloc] initWithCapacity:10];
+        for (int i=0; i<5 && i<sortedMaps.count; ++i) {
+            Map *thisMap = [sortedMaps objectAtIndex:i];
+            [sortedIndexes addObject:[NSNumber numberWithInt:[thisMap index]]];
+        }
+        next.subsetIndexes = sortedIndexes;
+    }
+    else if (bShowBeenThere || bShowWantToGo) {
         next.map = [subsetMaps objectAtIndex:selectedRowIndex.row];
+        NSMutableArray *subsetIndexes = [[NSMutableArray alloc] initWithCapacity:100];
+        for (int i=0; i<subsetMaps.count; ++i) {
+            Map *thisMap = [subsetMaps objectAtIndex:i];
+            [subsetIndexes addObject:[NSNumber numberWithInt:[thisMap index]]];
+        }
+        next.subsetIndexes = subsetIndexes;
+    }
     else
         next.map = [[[Data sharedMapData] getMaps] objectAtIndex:selectedRowIndex.row];
 }

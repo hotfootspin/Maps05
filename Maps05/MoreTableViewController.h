@@ -12,5 +12,7 @@
 @interface MoreTableViewController : UITableViewController
 
 @property (nonatomic, retain) Map *map;
+@property (nonatomic, assign) BOOL bBeenHere;
+@property (nonatomic, assign) BOOL bWantToGo;
 
 @end

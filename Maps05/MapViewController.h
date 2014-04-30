@@ -24,6 +24,11 @@
 @property (nonatomic, retain) AppDelegate *myAppDelegate;
 @property (nonatomic, retain) NSManagedObjectContext *context;
 @property (strong) NSArray *userMapBookmarks;
+- (IBAction)btnNext:(id)sender;
+- (IBAction)btnPrevious:(id)sender;
+
+- (void) loadMapData;
+@property (nonatomic, retain) NSMutableArray *subsetIndexes;
 
 @end
 

@@ -93,7 +93,7 @@
         if (dy == 0)
             map.direction = [NSString stringWithFormat:@"%s", dir_x == 'E' ? "East" : "West" ];
         double ratio = fabs (dx/dy);
-        NSLog(@"Ratio = %f / %f = %f", dx, dy, ratio);
+        // NSLog(@"Ratio = %f / %f = %f", dx, dy, ratio);
         if (ratio > 4.80)
             map.direction = [NSString stringWithFormat:@"%s", dir_x == 'E' ? "East" : "West" ]; // E or W
         else if (ratio > 1.50)
